@@ -1,17 +1,13 @@
-/*
-JavaScript Snake
-By Patrick Gillespie
-http://patorjk.com/games/snake
-*/
-body {
-	margin:0px;
-	padding:0px;
-    background-color: #FC5454;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button {
+    @apply px-2 py-1 bg-gray-300 text-gray-800 rounded-xl
 }
 
 #game-area {
-	margin:10px;
-	padding:0px;
+	
 }
 
 #mode-wrapper {
@@ -58,35 +54,29 @@ a.snake-link:hover {
 }
 
 .snake-snakebody-block {
-    margin: 0px;
+    /* margin: 0px;
     padding: 0px;
     background-color: #FF0000;
     position: absolute;
     border: 0px solid #000080;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+
+    @apply bg-white absolute
 }
 
 .snake-snakebody-alive {
-   background-image: url('./images/snakeblock.png');
+    @apply bg-white
 }
 .snake-snakebody-dead {
-   background-image: url('./images/deadblock.png');
+   
 }
 
 .snake-food-block {
-    margin: 0px;
-    padding: 0px;
-    background-color: #FF0000;
-    border: 0px solid #000080;
-    position: absolute;
+    @apply absolute bg-white
 }
 
 .snake-playing-field {
-    margin: 0px;
-    padding: 0px;
-    position: absolute;
-    background-color: #0000A8;
-    border: 0px solid #0000A8;
+    @apply bg-green-800
 }
 
 .snake-game-container {
@@ -99,7 +89,7 @@ a.snake-link:hover {
 }
 
 .snake-welcome-dialog {
-    padding: 8px;
+    /* padding: 8px;
     margin: 0px;
     background-color: #000000;
     color: #ffffff;
@@ -109,12 +99,18 @@ a.snake-link:hover {
     top: 50%;
     left: 50%;
     width: 300px;
-    /*height: 150px;*/
     margin-top: -100px;
     margin-left: -158px;
     text-align: center;
-    display: block;
+    display: block; */
+
+    @apply p-5 text-gray-900 bg-gray-100 absolute top-1/2 left-1/2 text-center
 }
+
+.snake-welcome-dialog h1 {
+    @apply font-bold
+}
+
 
 .snake-try-again-dialog, .snake-win-dialog {
     padding: 8px;

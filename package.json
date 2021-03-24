@@ -4,7 +4,8 @@
   "description": "JavaScript Snake<br/> By Patrick Gillespie<br/> License: MIT<br/> http://patorjk.com/games/snake",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --open",
+    "start": "browser-sync start --no-open --reload-debounce 500",
+    "taily": "tailwindcss build ./css/main-snake.css -o ./css/style.css",
     "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,8 +19,14 @@
     "url": "https://github.com/patorjk/JavaScript-Snake/issues"
   },
   "homepage": "https://github.com/patorjk/JavaScript-Snake#readme",
-  "dependencies": {},
+  "dependencies": {
+    "browser-sync": "^2.26.14"
+  },
   "devDependencies": {
-    "parcel-bundler": "^1.6.1"
+    "autoprefixer": "10.2.4",
+    "parcel-bundler": "^1.12.5",
+    "postcss": "8.2.6",
+    "postcss-cli": "8.3.0",
+    "tailwindcss": "2.0.3"
   }
 }
