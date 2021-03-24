@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 button {
-    @apply px-2 py-1 bg-gray-300 text-gray-800 rounded-xl
+    @apply m-3 px-3 py-2 bg-gray-300 text-gray-800 rounded-xl
 }
 
 #game-area {
@@ -28,19 +28,7 @@ a.snake-link:hover {
 }
 
 .snake-pause-screen {
-    font-family: Verdana, arial, helvetica, sans-serif;
-    font-size: 14px;
-    position:absolute;
-    width:300px;
-    height:80px;
-    text-align:center;
-    top:50%;
-    left:50%;
-    margin-top:-40px;
-    margin-left:-150px;
-    display:none;
-    background-color:black;
-    color:white;
+    @apply hidden p-5 text-gray-900 bg-gray-100 absolute top-1/2 left-1/2 text-center 
 }
 
 .snake-panel-component {
@@ -54,29 +42,22 @@ a.snake-link:hover {
 }
 
 .snake-snakebody-block {
-    /* margin: 0px;
-    padding: 0px;
-    background-color: #FF0000;
-    position: absolute;
-    border: 0px solid #000080;
-    background-repeat: no-repeat; */
-
-    @apply bg-white absolute
+    @apply absolute bg-gray-450
 }
 
 .snake-snakebody-alive {
-    @apply bg-white
+    @apply bg-gray-450
 }
 .snake-snakebody-dead {
    
 }
 
 .snake-food-block {
-    @apply absolute bg-white
+    @apply absolute bg-gray-450
 }
 
 .snake-playing-field {
-    @apply bg-green-800
+    @apply bg-green-450
 }
 
 .snake-game-container {
@@ -89,21 +70,6 @@ a.snake-link:hover {
 }
 
 .snake-welcome-dialog {
-    /* padding: 8px;
-    margin: 0px;
-    background-color: #000000;
-    color: #ffffff;
-    font-family: Verdana, arial, helvetica, sans-serif;
-    font-size: 14px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    margin-top: -100px;
-    margin-left: -158px;
-    text-align: center;
-    display: block; */
-
     @apply p-5 text-gray-900 bg-gray-100 absolute top-1/2 left-1/2 text-center
 }
 
@@ -113,19 +79,6 @@ a.snake-link:hover {
 
 
 .snake-try-again-dialog, .snake-win-dialog {
-    padding: 8px;
-    margin: 0px;
-    background-color: #000000;
-    color: #ffffff;
-    font-family: Verdana, arial, helvetica, sans-serif;
-    font-size: 14px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 100px;
-    margin-top: -75px;
-    margin-left: -158px;
-    text-align: center;
-    display: none;
+
+    @apply hidden p-5 text-gray-900 bg-gray-100 absolute top-1/2 left-1/2 text-center
 }
