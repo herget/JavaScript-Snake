@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply bg-green-450
+}
+
 button {
-    @apply m-3 px-3 py-2 bg-white text-gray-800 rounded-xl
+    @apply m-3 px-4 py-3 bg-green-50 text-green-800 text-lg rounded-xl
 }
 
 #game-area {
-	@apply bg-green-450
+
 }
 
 #mode-wrapper {
@@ -35,15 +39,12 @@ a.snake-link:hover {
     @apply w-full h-full max-w-4xl mx-auto outline-none flex flex-col items-center justify-center
 }
 
+.snake-footer {
+    @apply p-5 w-full absolute bottom-2 flex items-center justify-between space-x-3
+}
 
 .snake-panel-component {
-    position: absolute;
-    font-family: Verdana, arial, helvetica, sans-serif;
-    font-size: 14px;
-    color: #ffffff;
-    text-align: center;
-    padding: 8px;
-    margin: 0px;
+
 }
 
 .snake-snakebody-block {
@@ -74,15 +75,12 @@ a.snake-link:hover {
     position: relative;
 }
 
-.snake-welcome-dialog {
-    @apply p-5 text-gray-900 text-center bg-white shadow-md rounded-2xl
-}
 
 .snake-welcome-dialog h1 {
     @apply font-bold
 }
 
 
-.snake-pause-screen, .snake-try-again-dialog, .snake-win-dialog {
-    @apply p-5 text-gray-900 text-center bg-white shadow-md rounded-2xl
+.snake-welcome-dialog, .snake-pause-screen, .snake-try-again-dialog, .snake-win-dialog {
+    @apply p-5 text-gray-900 text-center bg-white shadow-md rounded-3xl
 }

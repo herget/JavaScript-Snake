@@ -697,15 +697,19 @@ SNAKE.Board = SNAKE.Board || (function() {
 
             elmContainer.className = "snake-game-container";
 
+            elmFooter = document.createElement("div")
+            elmFooter.className = "snake-footer"
+            elmFooter.appendChild(elmAboutPanel);
+            elmFooter.appendChild(elmLengthPanel);
+            elmFooter.appendChild(elmHighscorePanel);
+
             elmPauseScreen.style.zIndex = 10000;
             elmContainer.appendChild(elmPauseScreen);
             elmContainer.appendChild(elmPlayingField);
-            elmContainer.appendChild(elmAboutPanel);
-            elmContainer.appendChild(elmLengthPanel);
-            elmContainer.appendChild(elmHighscorePanel);
             elmContainer.appendChild(elmWelcome);
             elmContainer.appendChild(elmTryAgain);
             elmContainer.appendChild(elmWin);
+            elmContainer.appendChild(elmFooter);
 
             mySnake = new SNAKE.Snake({playingBoard:me,startRow:2,startCol:2});
             myFood = new SNAKE.Food({playingBoard: me});
@@ -929,10 +933,6 @@ SNAKE.Board = SNAKE.Board || (function() {
             var hEdgeSpace = me.getBlockHeight() + (cHeight % me.getBlockHeight());
             var fHeight = Math.min(maxBoardHeight()-hEdgeSpace,cHeight-hEdgeSpace);
 
-            elmContainer.style.left = cLeft + "px";
-            elmContainer.style.top = cTop + "px";
-            elmContainer.style.width = cWidth + "px";
-            elmContainer.style.height = cHeight + "px";
             elmPlayingField.style.left = me.getBlockWidth() + "px";
             elmPlayingField.style.top  = me.getBlockHeight() + "px";
             elmPlayingField.style.width = fWidth + "px";
@@ -942,16 +942,6 @@ SNAKE.Board = SNAKE.Board || (function() {
             // assuming height of 14 (font size) + 8 (padding)
             var bottomPanelHeight = hEdgeSpace - me.getBlockHeight();
             var pLabelTop = me.getBlockHeight() + fHeight + Math.round((bottomPanelHeight - 30)/2) + "px";
-
-            elmAboutPanel.style.top = pLabelTop;
-            elmAboutPanel.style.width = "450px";
-            elmAboutPanel.style.left = Math.round(cWidth/2) - Math.round(450/2) + "px";
-
-            elmLengthPanel.style.top = pLabelTop;
-            elmLengthPanel.style.left = 30 + "px";
-
-            elmHighscorePanel.style.top = pLabelTop;
-            elmHighscorePanel.style.left = cWidth - 140 + "px";
 
             // if width is too narrow, hide the about panel
             if (cWidth < 700) {
