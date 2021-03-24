@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 button {
-    @apply m-3 px-3 py-2 bg-gray-300 text-gray-800 rounded-xl
+    @apply m-3 px-3 py-2 bg-white text-gray-800 rounded-xl
 }
 
 #game-area {
@@ -27,9 +27,14 @@ a.snake-link:hover {
   color: #FfFf54;
 }
 
-.snake-pause-screen {
-    @apply hidden p-5 text-gray-900 bg-gray-100 absolute top-1/2 left-1/2 text-center 
+.modal-wrapper {
+    @apply hidden fixed inset-0 bg-black bg-opacity-20 text-base z-20 p-5 md:p-20 shadow-xl
 }
+
+.modal {
+    @apply w-full h-full max-w-4xl mx-auto outline-none flex flex-col items-center justify-center
+}
+
 
 .snake-panel-component {
     position: absolute;
@@ -70,7 +75,7 @@ a.snake-link:hover {
 }
 
 .snake-welcome-dialog {
-    @apply p-5 text-gray-900 bg-gray-100 absolute top-1/2 left-1/2 text-center
+    @apply p-5 text-gray-900 text-center bg-white shadow-md rounded-2xl
 }
 
 .snake-welcome-dialog h1 {
@@ -78,7 +83,6 @@ a.snake-link:hover {
 }
 
 
-.snake-try-again-dialog, .snake-win-dialog {
-
-    @apply hidden p-5 text-gray-900 bg-gray-100 absolute top-1/2 left-1/2 text-center
+.snake-pause-screen, .snake-try-again-dialog, .snake-win-dialog {
+    @apply p-5 text-gray-900 text-center bg-white shadow-md rounded-2xl
 }

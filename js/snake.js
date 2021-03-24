@@ -668,8 +668,8 @@ SNAKE.Board = SNAKE.Board || (function() {
             }, false);
 
             elmPauseScreen = document.createElement("div");
-            elmPauseScreen.className = "snake-pause-screen";
-            elmPauseScreen.innerHTML = "<div>[Paused]</div> <p>Press [space] to unpause.</p>";
+            elmPauseScreen.className = "modal-wrapper";
+            elmPauseScreen.innerHTML = "<div class='modal'><div class='snake-pause-screen'><div>[Paused]</div> <p>Press [space] to unpause.</p></div></div>";
 
             elmAboutPanel = document.createElement("div");
             elmAboutPanel.className = "snake-panel-component";
@@ -711,6 +711,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             myFood = new SNAKE.Food({playingBoard: me});
 
             elmWelcome.style.zIndex = 1000;
+            elmWelcome.style.display = "block"
         }
         function maxBoardWidth() {
             return MAX_BOARD_COLS * me.getBlockWidth();
@@ -722,14 +723,15 @@ SNAKE.Board = SNAKE.Board || (function() {
         function createWelcomeElement() {
              var tmpElm = document.createElement("div");
             tmpElm.id = "sbWelcome" + myId;
-            tmpElm.className = "snake-welcome-dialog";
+            tmpElm.className = "modal-wrapper";
 
             var welcomeTxt = document.createElement("div");
+            welcomeTxt.className = "modal";
             var fullScreenText = "";
             if (config.fullScreen) {
                 fullScreenText = "On Windows, press F11 to play in Full Screen mode.";
             }
-            welcomeTxt.innerHTML = "<h1>JavaScript Snake</h1>Use the <strong>arrow keys</strong> on your keyboard to play the game. " + fullScreenText + "<p></p>";
+            welcomeTxt.innerHTML = "<div class='snake-welcome-dialog'><h1>JavaScript Snake</h1>Use the <strong>arrow keys</strong> on your keyboard to play the game. " + fullScreenText + "</div>";
             var welcomeStart = document.createElement("button");
             welcomeStart.appendChild(document.createTextNode("Play Game"));
             var loadGame = function() {
@@ -749,18 +751,19 @@ SNAKE.Board = SNAKE.Board || (function() {
             SNAKE.addEventListener(window, "keyup", kbShortcut, false);
             SNAKE.addEventListener(welcomeStart, "click", loadGame, false);
 
+            welcomeTxt.appendChild(welcomeStart);
             tmpElm.appendChild(welcomeTxt);
-            tmpElm.appendChild(welcomeStart);
             return tmpElm;
         }
 
         function createGameEndElement(message, elmId, elmClassName) {
             var tmpElm = document.createElement("div");
             tmpElm.id = elmId + myId;
-            tmpElm.className = elmClassName;
+            tmpElm.className = "modal-wrapper";
 
             var gameEndTxt = document.createElement("div");
-            gameEndTxt.innerHTML = "JavaScript Snake<p></p>" + message + "<p></p>";
+            gameEndTxt.className = "modal"
+            gameEndTxt.innerHTML = "<div class='" + elmClassName + "'>JavaScript Snake <p>" + message + "</p></div>";
             var gameEndStart = document.createElement("button");
             gameEndStart.appendChild(document.createTextNode("Play Again?"));
 
@@ -782,8 +785,8 @@ SNAKE.Board = SNAKE.Board || (function() {
             SNAKE.addEventListener(window, "keyup", kbGameEndShortcut, true);
 
             SNAKE.addEventListener(gameEndStart, "click", reloadGame, false);
+            gameEndTxt.appendChild(gameEndStart);
             tmpElm.appendChild(gameEndTxt);
-            tmpElm.appendChild(gameEndStart);
             return tmpElm;
         }
 
