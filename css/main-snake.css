@@ -84,3 +84,11 @@ a.snake-link:hover {
 .snake-welcome-dialog, .snake-pause-screen, .snake-try-again-dialog, .snake-win-dialog {
     @apply p-5 text-gray-900 text-center bg-white shadow-md rounded-3xl
 }
+
+.snake-toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:10000;
+    padding: 5px;
+}
