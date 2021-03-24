@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+    font-family: "Silkscreen";
+    src: url("/fonts/silkscreen/slkscr.ttf") format("woff");
+  }
+
 body {
-    @apply bg-green-450
+    @apply bg-green-450 font-body
 }
 
 button {
