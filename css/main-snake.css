@@ -7,7 +7,7 @@ button {
 }
 
 #game-area {
-	
+	@apply bg-green-450
 }
 
 #mode-wrapper {
@@ -62,7 +62,7 @@ a.snake-link:hover {
 }
 
 .snake-playing-field {
-    @apply bg-green-450
+    
 }
 
 .snake-game-container {

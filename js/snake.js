@@ -913,8 +913,8 @@ SNAKE.Board = SNAKE.Board || (function() {
             if (config.fullScreen === true) {
                 cTop = 0;
                 cLeft = 0;
-                cWidth = getClientWidth()-20;
-                cHeight = getClientHeight()-20;
+                cWidth = getClientWidth();
+                cHeight = getClientHeight();
                 
             } else {
                 cTop = config.top;
@@ -924,9 +924,9 @@ SNAKE.Board = SNAKE.Board || (function() {
             }
 
             // define the dimensions of the board and playing field
-            var wEdgeSpace = me.getBlockWidth()*2 + (cWidth % me.getBlockWidth());
+            var wEdgeSpace = me.getBlockWidth() + (cWidth % me.getBlockWidth());
             var fWidth = Math.min(maxBoardWidth()-wEdgeSpace,cWidth-wEdgeSpace);
-            var hEdgeSpace = me.getBlockHeight()*3 + (cHeight % me.getBlockHeight());
+            var hEdgeSpace = me.getBlockHeight() + (cHeight % me.getBlockHeight());
             var fHeight = Math.min(maxBoardHeight()-hEdgeSpace,cHeight-hEdgeSpace);
 
             elmContainer.style.left = cLeft + "px";
