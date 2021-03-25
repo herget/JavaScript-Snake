@@ -716,6 +716,38 @@ SNAKE.Board = SNAKE.Board || (function() {
 
             elmWelcome.style.zIndex = 1000;
             elmWelcome.style.display = "block"
+
+            // Set up gestures using HammerJS
+            var hammer    = new Hammer.Manager(elmContainer);
+            var swipe     = new Hammer.Swipe();
+            var startGameOrMoveInDirection = function (keyNum) {
+                if(boardState === 1) {
+                    mySnake.rebirth();
+                    mySnake.handleArrowKeys(keyNum);
+                    me.setBoardState(2); // start the game!
+                    mySnake.go();
+                } else {
+                    mySnake.handleArrowKeys(keyNum);
+                }
+            }
+
+            hammer.add(swipe);
+
+            hammer.on('swipeleft', function(){
+                startGameOrMoveInDirection(37)
+            });
+            
+            hammer.on('swiperight', function(){
+                startGameOrMoveInDirection(39)
+            });
+
+            hammer.on('swipeup', function(){
+                startGameOrMoveInDirection(38)
+            });
+
+            hammer.on('swipedown', function(){
+                startGameOrMoveInDirection(40)
+            });
         }
         function maxBoardWidth() {
             return MAX_BOARD_COLS * me.getBlockWidth();
@@ -735,7 +767,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             if (config.fullScreen) {
                 fullScreenText = "On Windows, press F11 to play in Full Screen mode.";
             }
-            welcomeTxt.innerHTML = "<div class='snake-welcome-dialog'><h1>JavaScript Snake</h1>Use the <strong>arrow keys</strong> on your keyboard to play the game. " + fullScreenText + "</div>";
+            welcomeTxt.innerHTML = "<div class='snake-welcome-dialog'><h1>JavaScript Snake</h1>Swipe or use the <strong>arrow keys</strong> on your keyboard to play the game.</div>";
             var welcomeStart = document.createElement("button");
             welcomeStart.appendChild(document.createTextNode("Play Game"));
             var loadGame = function() {
