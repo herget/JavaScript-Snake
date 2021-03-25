@@ -1,0 +1,1 @@
+{"version":3,"sources":["js/init.js"],"names":["mySnakeBoard","SNAKE","Board","boardContainer","fullScreen"],"mappings":";AAAA,IAAIA,EAAe,IAAIC,MAAMC,MAAM,CACjCC,eAAgB,YAChBC,YAAY","file":"init.c614f01d.js","sourceRoot":"..","sourcesContent":["var mySnakeBoard = new SNAKE.Board({\n  boardContainer: \"game-area\",\n  fullScreen: true\n});\n"]}
