@@ -30,11 +30,11 @@ button {
 #game-area:focus { outline: none; }
 
 a.snake-link, a.snake-link:link, a.snake-link:visited {
-  color: #FCFC54;
+    @apply text-green-800
 }
 
 a.snake-link:hover {
-  color: #FfFf54;
+    @apply text-green-800
 }
 
 .modal-wrapper {
