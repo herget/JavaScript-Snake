@@ -1,7 +1,10 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: [],
+  purge: {
+    enabled: true,
+    content: ['./css/main-snake.css'],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
