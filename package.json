@@ -6,7 +6,7 @@
   "scripts": {
     "start": "browser-sync start --no-open --reload-debounce 500",
     "taily": "tailwindcss build ./css/main-snake.css -o ./css/style.css",
-    "build": "parcel build index.html",
+    "build": "npm run taily && parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
