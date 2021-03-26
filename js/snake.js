@@ -703,7 +703,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             elmFooter.className = "snake-footer"
             elmFooter.appendChild(elmAboutPanel);
             elmFooter.appendChild(elmLengthPanel);
-            elmFooter.appendChild(elmHighscorePanel);
+            // elmFooter.appendChild(elmHighscorePanel);
 
             elmContainer.appendChild(elmPauseScreen);
             elmContainer.appendChild(elmPlayingField);
@@ -974,13 +974,6 @@ SNAKE.Board = SNAKE.Board || (function() {
             // assuming height of 14 (font size) + 8 (padding)
             var bottomPanelHeight = hEdgeSpace - me.getBlockHeight();
             var pLabelTop = me.getBlockHeight() + fHeight + Math.round((bottomPanelHeight - 30)/2) + "px";
-
-            // if width is too narrow, hide the about panel
-            if (cWidth < 700) {
-                elmAboutPanel.style.display = "none";
-            } else {
-                elmAboutPanel.style.display = "block";
-            }
 
             me.grid = [];
             var numBoardCols = fWidth / me.getBlockWidth() + 2;
