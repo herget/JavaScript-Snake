@@ -46,7 +46,7 @@ a.snake-link:hover {
 }
 
 .snake-footer {
-    @apply p-5 w-full z-50 absolute bottom-2 flex items-center justify-between space-x-3
+    @apply px-5 w-full z-50 absolute bottom-2 flex items-center justify-between space-x-3
 }
 
 .snake-panel-component {
@@ -92,6 +92,6 @@ a.snake-link:hover {
 }
 
 .snake-toolbar {
-    @apply absolute top-0 left-0 z-50 p-3
+    @apply absolute top-0 left-0 z-50 p-5
 
 }
