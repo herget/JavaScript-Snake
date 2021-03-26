@@ -673,10 +673,6 @@ SNAKE.Board = SNAKE.Board || (function() {
             elmPauseScreen.className = "modal-wrapper";
             elmPauseScreen.innerHTML = "<div class='modal'><div class='snake-pause-screen'><div>[Paused]</div> <p>Press [space] to unpause.</p></div></div>";
 
-            elmAboutPanel = document.createElement("div");
-            elmAboutPanel.className = "snake-panel-component";
-            elmAboutPanel.innerHTML = "<a href='https://github.com/herget/JavaScript-Snake' class='snake-link'>source code</a>";
-
             elmLengthPanel = document.createElement("div");
             elmLengthPanel.className = "snake-panel-component";
             elmLengthPanel.innerHTML = "Length: 1";
@@ -699,9 +695,7 @@ SNAKE.Board = SNAKE.Board || (function() {
 
             elmContainer.className = "snake-game-container";
 
-            elmFooter = document.createElement("div")
-            elmFooter.className = "snake-footer"
-            elmFooter.appendChild(elmAboutPanel);
+            elmFooter = document.querySelector(".snake-footer")
             elmFooter.appendChild(elmLengthPanel);
             // elmFooter.appendChild(elmHighscorePanel);
 

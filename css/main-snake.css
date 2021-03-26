@@ -29,11 +29,7 @@ button {
 
 #game-area:focus { outline: none; }
 
-a.snake-link, a.snake-link:link, a.snake-link:visited {
-    @apply text-green-800
-}
-
-a.snake-link:hover {
+a, a:link, a:visited, a:hover {
     @apply text-green-800
 }
 
