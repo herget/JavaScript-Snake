@@ -704,7 +704,6 @@ SNAKE.Board = SNAKE.Board || (function() {
             elmContainer.appendChild(elmWelcome);
             elmContainer.appendChild(elmTryAgain);
             elmContainer.appendChild(elmWin);
-            elmContainer.appendChild(elmFooter);
 
             mySnake = new SNAKE.Snake({playingBoard:me,startRow:20,startCol:20});
             myFood = new SNAKE.Food({playingBoard: me});
