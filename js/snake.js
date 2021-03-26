@@ -410,6 +410,7 @@ SNAKE.Snake = SNAKE.Snake || (function() {
             isFirstMove = true;
             isFirstGameMove = true;
             preMove = -1;
+            me.eatFood()
         };
 
         /**
@@ -450,6 +451,7 @@ SNAKE.Snake = SNAKE.Snake || (function() {
             me.snakeHead.yPos = me.snakeHead.col * playingBoard.getBlockHeight();
             me.snakeHead.elm.style.left = me.snakeHead.xPos + "px";
             me.snakeHead.elm.style.top = me.snakeHead.yPos + "px";
+            
         };
 
         // ---------------------------------------------------------------------
@@ -640,8 +642,8 @@ SNAKE.Board = SNAKE.Board || (function() {
             config = inputConfig || {},
             MAX_BOARD_COLS = 250,
             MAX_BOARD_ROWS = 250,
-            blockWidth = 20,
-            blockHeight = 20,
+            blockWidth = 15,
+            blockHeight = 15,
             GRID_FOOD_VALUE = -1, // the value of a spot on the board that represents snake food, MUST BE NEGATIVE
             myFood,
             mySnake,
@@ -703,7 +705,6 @@ SNAKE.Board = SNAKE.Board || (function() {
             elmFooter.appendChild(elmLengthPanel);
             elmFooter.appendChild(elmHighscorePanel);
 
-            elmPauseScreen.style.zIndex = 10000;
             elmContainer.appendChild(elmPauseScreen);
             elmContainer.appendChild(elmPlayingField);
             elmContainer.appendChild(elmWelcome);
@@ -711,10 +712,9 @@ SNAKE.Board = SNAKE.Board || (function() {
             elmContainer.appendChild(elmWin);
             elmContainer.appendChild(elmFooter);
 
-            mySnake = new SNAKE.Snake({playingBoard:me,startRow:2,startCol:2});
+            mySnake = new SNAKE.Snake({playingBoard:me,startRow:20,startCol:20});
             myFood = new SNAKE.Food({playingBoard: me});
 
-            elmWelcome.style.zIndex = 1000;
             elmWelcome.style.display = "block"
 
             // Set up gestures using HammerJS
@@ -838,7 +838,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             var index = Math.max(getNextHighestZIndex(mySnake.snakeBody), getNextHighestZIndex({ tmp: { elm: myFood.getFoodElement() } }));
             elmContainer.removeChild(elmDialog);
             elmContainer.appendChild(elmDialog);
-            elmDialog.style.zIndex = index;
+            // elmDialog.style.zIndex = index;
             elmDialog.style.display = "block";
             me.setBoardState(0);
         }
