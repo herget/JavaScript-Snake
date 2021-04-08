@@ -332,6 +332,8 @@ SNAKE.Snake = SNAKE.Snake || (function() {
             
             newHead.elmStyle.left = newHead.xPos + "px";
             newHead.elmStyle.top = newHead.yPos + "px";
+            newHead.elm.classList.remove("snake-snakebody-block")
+            oldHead.elm.classList.add("snake-snakebody-block")
             
             // Set head pos
             var headImage = document.getElementById("snakehead")
@@ -344,24 +346,24 @@ SNAKE.Snake = SNAKE.Snake || (function() {
                 case 0: { // UP
                     headImage.style.transform = "rotate(180deg)"; 
                     headImage.style.left = (newHead.xPos - headImageWidthCenter) + "px"
-                    headImage.style.top = (newHead.yPos - headImageHeight) + "px"
+                    headImage.style.top = (newHead.yPos - headImageHeightCenter) + "px"
                     break;
                 }
                 case 1: { // RIGHT
                     headImage.style.transform = "rotate(270deg)"; 
-                    headImage.style.left = (newHead.xPos + playingBoard.getBlockWidth() ) + "px"
+                    headImage.style.left = newHead.xPos + "px"
                     headImage.style.top = (newHead.yPos - headImageHeightCenter) + "px"
                     break;
                 }
                 case 2: { // DOWN
                     headImage.style.transform = ""; 
                     headImage.style.left = (newHead.xPos - headImageWidthCenter) + "px"
-                    headImage.style.top = (newHead.yPos + playingBoard.getBlockHeight() ) + "px"
+                    headImage.style.top = newHead.yPos + "px"
                     break;
                 }
                 case 3: { // LEFT
                     headImage.style.transform = "rotate(90deg)"; 
-                    headImage.style.left = (newHead.xPos - headImageWidth) + "px"
+                    headImage.style.left = (newHead.xPos - headImageWidthCenter) + "px"
                     headImage.style.top = (newHead.yPos - headImageHeightCenter) + "px"
                     break;
                 }
