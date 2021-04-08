@@ -320,18 +320,52 @@ SNAKE.Snake = SNAKE.Snake || (function() {
                 }
             }
             isFirstMove = true;
-
+            
             newHead.col = oldHead.col + columnShift[lastMove];
             newHead.row = oldHead.row + rowShift[lastMove];
             newHead.xPos = oldHead.xPos + xPosShift[lastMove];
             newHead.yPos = oldHead.yPos + yPosShift[lastMove];
-
+            
             if ( !newHead.elmStyle ) {
                 newHead.elmStyle = newHead.elm.style;
             }
-
+            
             newHead.elmStyle.left = newHead.xPos + "px";
             newHead.elmStyle.top = newHead.yPos + "px";
+            
+            // Set head pos
+            var headImage = document.getElementById("snakehead")
+            var headImageWidth = headImage.getBoundingClientRect().width
+            var headImageHeight = headImage.getBoundingClientRect().height
+            var headImageWidthCenter = headImageWidth/2 - playingBoard.getBlockWidth()/2
+            var headImageHeightCenter = headImageHeight/2 - playingBoard.getBlockHeight()/2
+            var direction = currentDirection != -1 ? currentDirection : lastMove
+            switch(direction) {
+                case 0: { // UP
+                    headImage.style.transform = "rotate(180deg)"; 
+                    headImage.style.left = (newHead.xPos - headImageWidthCenter) + "px"
+                    headImage.style.top = (newHead.yPos - headImageHeight) + "px"
+                    break;
+                }
+                case 1: { // RIGHT
+                    headImage.style.transform = "rotate(270deg)"; 
+                    headImage.style.left = (newHead.xPos + playingBoard.getBlockWidth() ) + "px"
+                    headImage.style.top = (newHead.yPos - headImageHeightCenter) + "px"
+                    break;
+                }
+                case 2: { // DOWN
+                    headImage.style.transform = ""; 
+                    headImage.style.left = (newHead.xPos - headImageWidthCenter) + "px"
+                    headImage.style.top = (newHead.yPos + playingBoard.getBlockHeight() ) + "px"
+                    break;
+                }
+                case 3: { // LEFT
+                    headImage.style.transform = "rotate(90deg)"; 
+                    headImage.style.left = (newHead.xPos - headImageWidth) + "px"
+                    headImage.style.top = (newHead.yPos - headImageHeightCenter) + "px"
+                    break;
+                }
+            }
 
             // check the new spot the snake moved into
 
@@ -642,8 +676,8 @@ SNAKE.Board = SNAKE.Board || (function() {
             config = inputConfig || {},
             MAX_BOARD_COLS = 250,
             MAX_BOARD_ROWS = 250,
-            blockWidth = 15,
-            blockHeight = 15,
+            blockWidth = 10,
+            blockHeight = 10,
             GRID_FOOD_VALUE = -1, // the value of a spot on the board that represents snake food, MUST BE NEGATIVE
             myFood,
             mySnake,
