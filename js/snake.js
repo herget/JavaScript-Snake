@@ -333,8 +333,8 @@ SNAKE.Snake = SNAKE.Snake || (function() {
             
             newHead.elmStyle.left = newHead.xPos + "px";
             newHead.elmStyle.top = newHead.yPos + "px";
-            newHead.elm.classList.remove("snake-snakebody-block")
-            oldHead.elm.classList.add("snake-snakebody-block")
+            newHead.elm.classList.remove("snake-snakebody-block", "snake-snakebody-alive")
+            oldHead.elm.classList.add("snake-snakebody-block", "snake-snakebody-alive")
             
             // Set head pos
             var headImage = document.getElementById("snakehead")
