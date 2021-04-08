@@ -1,7 +1,7 @@
 {
   "name": "javascript-snake",
   "version": "1.0.0",
-  "description": "JavaScript Snake<br/> By Patrick Gillespie<br/> License: MIT<br/> http://patorjk.com/games/snake",
+  "description": "Retro Snake",
   "main": "index.html",
   "scripts": {
     "start": "browser-sync start --no-open --reload-debounce 500",

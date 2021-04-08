@@ -1,6 +1,7 @@
 /*
-JavaScript Snake
-First version by Patrick Gillespie - I've since merged in a good number of github pull requests
+Retro Snake
+
+Forked. First version by Patrick Gillespie - I've since merged in a good number of github pull requests
 http://patorjk.com/games/snake 
 */
 
@@ -796,7 +797,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             if (config.fullScreen) {
                 fullScreenText = "On Windows, press F11 to play in Full Screen mode.";
             }
-            welcomeTxt.innerHTML = "<div class='snake-welcome-dialog'><h1>JavaScript Snake</h1>Swipe or use the <strong>arrow keys</strong> on your keyboard to play the game.</div>";
+            welcomeTxt.innerHTML = "<div class='snake-welcome-dialog'><h1>Retro Snake</h1>Swipe or use the <strong>arrow keys</strong> on your keyboard to play the game.</div>";
             var welcomeStart = document.createElement("button");
             welcomeStart.appendChild(document.createTextNode("Play Game"));
             var loadGame = function() {
@@ -828,7 +829,7 @@ SNAKE.Board = SNAKE.Board || (function() {
 
             var gameEndTxt = document.createElement("div");
             gameEndTxt.className = "modal"
-            gameEndTxt.innerHTML = "<div class='" + elmClassName + "'>JavaScript Snake <p>" + message + "</p></div>";
+            gameEndTxt.innerHTML = "<div class='" + elmClassName + "'>Retro Snake <p>" + message + "</p></div>";
             var gameEndStart = document.createElement("button");
             gameEndStart.appendChild(document.createTextNode("Play Again?"));
 
