@@ -79,9 +79,12 @@ a, a:link, a:visited, a:hover {
 
 
 .snake-welcome-dialog h1 {
-    
+    @apply text-lg mb-6
 }
 
+.snake-welcome-dialog svg {
+    @apply inline
+}
 
 .snake-welcome-dialog, .snake-pause-screen, .snake-try-again-dialog, .snake-win-dialog {
     @apply p-5 text-gray-900 text-center bg-white shadow-md rounded-lg
@@ -90,4 +93,8 @@ a, a:link, a:visited, a:hover {
 .snake-toolbar {
     @apply absolute top-0 left-0 z-50 p-5
 
+}
+
+.instructions {
+    @apply text-center
 }
